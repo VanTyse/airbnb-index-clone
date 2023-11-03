@@ -17,6 +17,8 @@ export default function useScroll() {
 
   useEffect(() => {
     window.addEventListener("scroll", scrollListener);
+
+    return () => window.removeEventListener("scroll", scrollListener);
   }, []);
 
   useEffect(() => {
@@ -28,7 +30,10 @@ export default function useScroll() {
     setPreviousScrollOffset(currentScrollOffset);
   }, [currentScrollOffset]);
 
-  return [scrollDirection, currentScrollOffset];
+  return {
+    scrollDirection: scrollDirection.direction,
+    scrollOffset: currentScrollOffset,
+  };
 }
 
 const getScrollOffset = () => {

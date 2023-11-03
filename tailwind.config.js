@@ -8,7 +8,8 @@ export default {
           primary: "#F6475F",
           grey: {
             1: "#222222",
-            2: "#EBEBEB",
+            2: "#DDD",
+            3: "#EBEBEB",
             text: "#5E5E5E",
           },
         },
@@ -18,5 +19,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

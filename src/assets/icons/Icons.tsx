@@ -89,11 +89,98 @@ const Lens = ({ width, height, color }: SVGPropTypes) => {
   );
 };
 
+const Plus = ({ width, height, color }: SVGPropTypes) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width || "16"}
+      height={height || "16"}
+      fill={color || "currentColor"}
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+      />
+    </svg>
+  );
+};
+
+const Minus = ({ width, height, color }: SVGPropTypes) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width || "16"}
+      height={height || "16"}
+      fill={color || "currentColor"}
+      viewBox="0 0 16 16"
+    >
+      <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+    </svg>
+  );
+};
+
+const SettingsIcon = ({ width, height, color }: SVGPropTypes) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width || "16"}
+      height={height || "16"}
+      fill={color || "currentColor"}
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"
+      />
+    </svg>
+  );
+};
+
+const ChevronLeft = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+      />
+    </svg>
+  );
+};
+
+const ChevronRight = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+      />
+    </svg>
+  );
+};
+
 const Icons = {
   AirbnbLogo,
   WorldIcon,
   AvatarIcon,
   Lens,
+  Plus,
+  Minus,
+  SettingsIcon,
+  ChevronLeft,
+  ChevronRight,
 };
 
 export default Icons;
