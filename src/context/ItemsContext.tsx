@@ -5,12 +5,12 @@ const INITIAL_STATE: ItemType[] = [];
 
 const getRandomImageurl = () => {
   const images = [
-    "/assets/images/image-1.jpg",
-    "/assets/images/image-2.jpg",
-    "/assets/images/image-3.jpg",
-    "/assets/images/image-4.jpg",
-    "/assets/images/image-5.jpg",
-    "/assets/images/image-6.jpg",
+    "/assets/images/image-1.jpeg",
+    "/assets/images/image-2.jpeg",
+    "/assets/images/image-3.jpeg",
+    "/assets/images/image-4.jpeg",
+    "/assets/images/image-5.jpeg",
+    "/assets/images/image-6.jpeg",
   ];
 
   const randomIndex = Math.floor(Math.random() * images.length);

@@ -3,7 +3,7 @@ import Icon from "../../assets/icons/Icon";
 import Slider from "../Sliders/NavSlider";
 import { SearchDetails, VisitType } from "../../lib/types";
 import NavSlider from "../Sliders/NavSlider";
-import { regions } from "../../lib/data";
+import { headerNavs, regions } from "../../lib/data";
 import { SearchContext } from "../../context/SearchContext";
 import MyCalendar from "../Calendar/Calendar";
 import NumberSelctor from "../NumberSelector/NumberSelector";
@@ -19,14 +19,26 @@ export default function ({
 }) {
   const [selectedVisitOption, setSelectedVisitOption] =
     useState<VisitType>("stays");
-  // const { dispatch: searchDispatch, data: searchData } =
-  //   useContext(SearchContext);
+  const [navSelected, setNavSelected] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState("region");
 
   return (
     <div className="block md:hidden gap-8 items-center pt-7">
-      <Slider hideButtons />
+      <Slider hideButtons>
+        {headerNavs.map((nav, index) => (
+          <div
+            className={`flex flex-col gap-2 p-3 pt-0 ${
+              navSelected === index && "border-b-[3px] pb-[9px] border-black"
+            }`}
+            onClick={() => setNavSelected(index)}
+            key={index}
+          >
+            <img src={nav.icon} alt="" className="h-5 w-auto" />
+            <span className="text-xs whitespace-nowrap">{nav.name}</span>
+          </div>
+        ))}
+      </Slider>
 
       {showSearch && (
         <div className="fixed top-0 left-0 h-[100dvh] w-[100dvw] bg-vantyse-grey-3 px-[2.5%] pt-5">

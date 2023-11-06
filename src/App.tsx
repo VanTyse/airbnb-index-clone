@@ -6,6 +6,7 @@ import { ItemsContext } from "./context/ItemsContext";
 import { ItemType } from "./lib/types";
 import fetchJSON from "./lib/utils/fetchJSON";
 import Footer from "./components/Footer/Footer";
+import MobileStickyNavbar from "./components/MobileStickyNavbar/MobileStickyNavbar";
 
 function App() {
   const [currentHeaderHeight, setCurrentHeaderHeight] = useState(44);
@@ -35,6 +36,7 @@ function App() {
         <AmazingSpaces />
         <div className="mt-10 mx-auto w-fit"></div>
       </div>
+      <MobileStickyNavbar />
       <Footer />
     </div>
   );

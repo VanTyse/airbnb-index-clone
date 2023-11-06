@@ -95,7 +95,163 @@ export const months: month[] = [
 
 export const headerNavs = [
   {
-    name: "",
-    icon: "",
+    name: "Amazing Spaces",
+    icon: "/assets/icons/nav-icon-13.svg",
+  },
+  {
+    name: "Castles",
+    icon: "/assets/icons/nav-icon-2.svg",
+  },
+  {
+    name: "Iconic Cities",
+    icon: "/assets/icons/nav-icon-3.svg",
+  },
+  {
+    name: "Rooms",
+    icon: "/assets/icons/nav-icon-4.svg",
+  },
+  {
+    name: "Cabins",
+    icon: "/assets/icons/nav-icon-5.svg",
+  },
+  {
+    name: "Amazing Pools",
+    icon: "/assets/icons/nav-icon-6.svg",
+  },
+  {
+    name: "Windmills",
+    icon: "/assets/icons/nav-icon-14.svg",
+  },
+  {
+    name: "Mansions",
+    icon: "/assets/icons/nav-icon-8.svg",
+  },
+  {
+    name: "Tiny homes",
+    icon: "/assets/icons/nav-icon-7.svg",
+  },
+  {
+    name: "Camping",
+    icon: "/assets/icons/nav-icon-10.svg",
+  },
+  {
+    name: "Domes",
+    icon: "/assets/icons/nav-icon-11.svg",
+  },
+  {
+    name: "Iconic Cities",
+    icon: "/assets/icons/nav-icon-3.svg",
+  },
+  {
+    name: "Rooms",
+    icon: "/assets/icons/nav-icon-4.svg",
+  },
+  {
+    name: "Cabins",
+    icon: "/assets/icons/nav-icon-5.svg",
+  },
+  {
+    name: "Amazing Pools",
+    icon: "/assets/icons/nav-icon-6.svg",
+  },
+  {
+    name: "Windmills",
+    icon: "/assets/icons/nav-icon-14.svg",
+  },
+  {
+    name: "Mansions",
+    icon: "/assets/icons/nav-icon-8.svg",
+  },
+  {
+    name: "Tiny homes",
+    icon: "/assets/icons/nav-icon-7.svg",
+  },
+  {
+    name: "Camping",
+    icon: "/assets/icons/nav-icon-10.svg",
+  },
+  {
+    name: "Domes",
+    icon: "/assets/icons/nav-icon-11.svg",
+  },
+  {
+    name: "Amazing Spaces",
+    icon: "/assets/icons/nav-icon-13.svg",
+  },
+  {
+    name: "Castles",
+    icon: "/assets/icons/nav-icon-2.svg",
+  },
+  {
+    name: "Iconic Cities",
+    icon: "/assets/icons/nav-icon-3.svg",
+  },
+  {
+    name: "Rooms",
+    icon: "/assets/icons/nav-icon-4.svg",
+  },
+  {
+    name: "Cabins",
+    icon: "/assets/icons/nav-icon-5.svg",
+  },
+  {
+    name: "Amazing Pools",
+    icon: "/assets/icons/nav-icon-6.svg",
+  },
+  {
+    name: "Windmills",
+    icon: "/assets/icons/nav-icon-14.svg",
+  },
+  {
+    name: "Mansions",
+    icon: "/assets/icons/nav-icon-8.svg",
+  },
+  {
+    name: "Tiny homes",
+    icon: "/assets/icons/nav-icon-7.svg",
+  },
+  {
+    name: "Camping",
+    icon: "/assets/icons/nav-icon-10.svg",
+  },
+  {
+    name: "Domes",
+    icon: "/assets/icons/nav-icon-11.svg",
+  },
+  {
+    name: "Iconic Cities",
+    icon: "/assets/icons/nav-icon-3.svg",
+  },
+  {
+    name: "Rooms",
+    icon: "/assets/icons/nav-icon-4.svg",
+  },
+  {
+    name: "Cabins",
+    icon: "/assets/icons/nav-icon-5.svg",
+  },
+  {
+    name: "Amazing Pools",
+    icon: "/assets/icons/nav-icon-6.svg",
+  },
+  {
+    name: "Windmills",
+    icon: "/assets/icons/nav-icon-14.svg",
+  },
+  {
+    name: "Mansions",
+    icon: "/assets/icons/nav-icon-8.svg",
+  },
+  {
+    name: "Tiny homes",
+    icon: "/assets/icons/nav-icon-7.svg",
+  },
+  {
+    name: "Camping",
+    icon: "/assets/icons/nav-icon-10.svg",
+  },
+  {
+    name: "Domes",
+    icon: "/assets/icons/nav-icon-11.svg",
   },
 ];
