@@ -98,7 +98,11 @@ export default function ({
                 s.push(i);
               }
 
-              return s.map((y) => <div className="border">{y}</div>);
+              return s.map((y) => (
+                <div key={y} className="border">
+                  {y}
+                </div>
+              ));
             })}
         </div>
       </div>

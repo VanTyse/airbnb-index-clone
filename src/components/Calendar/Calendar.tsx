@@ -151,7 +151,7 @@ const Year = ({
   }, [yearContainerRef.current, visible]);
 
   useEffect(() => {
-    console.log(yearContainerWidth);
+    // console.log(yearContainerWidth);
   }, [yearContainerWidth]);
 
   const translate = useMemo(() => {

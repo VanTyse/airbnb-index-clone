@@ -31,6 +31,7 @@ export default function ({
                   nav === selectedNav && "border-b-2 border-black"
                 }`}
                 onClick={() => setSelectedNav(nav)}
+                key={nav}
               >
                 {nav}
               </div>
@@ -41,7 +42,7 @@ export default function ({
           {footerItems.map((item, index) => {
             if (index < limit)
               return (
-                <Link to={"#"}>
+                <Link key={index} to={"#"}>
                   <h1 className="text-black font-medium">{item.item}</h1>
                   <h2 className="capitalize">{item.subItem}</h2>
                 </Link>
@@ -63,7 +64,7 @@ export default function ({
           <h1 className="text-black md:font-semibold">Support</h1>
           <div className="flex flex-col gap-4">
             {supportLinks.map((supportLink) => (
-              <Link to={"#"}>
+              <Link key={supportLink} to={"#"}>
                 <div>{supportLink}</div>
               </Link>
             ))}
@@ -73,7 +74,7 @@ export default function ({
           <h1 className="text-black md:font-semibold">Hosting</h1>
           <div className="flex flex-col gap-4">
             {hostingLinks.map((hostingLink) => (
-              <Link to={"#"}>
+              <Link key={hostingLink} to={"#"}>
                 <div>{hostingLink}</div>
               </Link>
             ))}
@@ -83,7 +84,7 @@ export default function ({
           <h1 className="text-black md:font-semibold">Airbnb</h1>
           <div className="flex flex-col gap-4">
             {airbnbLinks.map((link) => (
-              <Link to={"#"}>
+              <Link key={link} to={"#"}>
                 <div>{link}</div>
               </Link>
             ))}

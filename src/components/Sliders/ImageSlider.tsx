@@ -111,8 +111,9 @@ export default function ({ images }: { images: string[] }) {
         className="flex w-full aspect-square rounded-2xl gap-0 overflow-auto scrollbar-none"
         ref={scrollContainerRef}
       >
-        {images.map((image) => (
+        {images.map((image, index) => (
           <img
+            key={index}
             src={image}
             className="min-w-full aspect-square block object-cover rounded-2xl"
           />
@@ -163,6 +164,7 @@ const PositionIndicators = ({
         .fill(0)
         .map((y, index) => (
           <PositionIndicator
+            key={y + index}
             position={y + index}
             currentPosition={currentPosition}
           />

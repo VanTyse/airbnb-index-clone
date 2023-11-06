@@ -189,6 +189,7 @@ const LargeBar = ({
                 "text-vantyse-grey-1 font-semibold "
               }`}
               onClick={() => setSelectedVisitOption(option)}
+              key={option}
             >
               {option}
             </div>
@@ -530,6 +531,7 @@ const Regions = ({ show }: { show: boolean }) => {
                   payload: { value: regionObj.region },
                 })
               }
+              key={regionObj.region}
             >
               <img
                 src={regionObj.image}
@@ -852,6 +854,7 @@ const FlexibleTimeType = () => {
       <NavSlider showSliderButtonsBg={false}>
         {months.map((month) => (
           <div
+            key={month}
             className={`border hover:border-black cursor-pointer min-w-[8rem] h-36 
             ${searchData.time.flexible.months.includes(month) && "border-black"}
           rounded-xl flex flex-col gap-2 items-center justify-center`}

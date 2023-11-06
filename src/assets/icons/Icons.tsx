@@ -19,7 +19,7 @@ const AirbnbLogo = ({ color, width, height }: SVGPropTypes) => {
 const AirbnbLogoNoText = ({ color, width, height }: SVGPropTypes) => {
   return (
     <svg
-      enable-background="new 0 0 1991.3 2143.2"
+      enableBackground="new 0 0 1991.3 2143.2"
       viewBox="0 0 1991.3 2143.2"
       width={width || "2500"}
       height={height || "780"}
@@ -42,14 +42,14 @@ const WorldIcon = ({ color, width, height }: SVGPropTypes) => {
       viewBox="0 0 18 18"
       fill="none"
     >
-      <circle cx="9" cy="9" r="8" stroke={color || "#222"} stroke-width="1.5" />
+      <circle cx="9" cy="9" r="8" stroke={color || "#222"} strokeWidth="1.5" />
       <ellipse
         cx="9"
         cy="9"
         rx="3"
         ry="8"
         stroke={color || "#222"}
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
       <line
         x1="1"
@@ -57,7 +57,7 @@ const WorldIcon = ({ color, width, height }: SVGPropTypes) => {
         x2="17"
         y2="9.25"
         stroke={color || "#222"}
-        stroke-width="1.5"
+        strokeWidth="1.5"
       />
     </svg>
   );
@@ -72,7 +72,7 @@ const AvatarIcon = ({ width, height }: SVGPropTypes) => {
       viewBox="0 0 24 25"
       fill="none"
     >
-      <g clip-path="url(#clip0_107_355)">
+      <g clipPath="url(#clip0_107_355)">
         <path
           d="M12 2.5C6.48 2.5 2 6.98 2 12.5C2 18.02 6.48 22.5 12 22.5C17.52 22.5 22 18.02 22 12.5C22 6.98 17.52 2.5 12 2.5ZM12 5.5C13.66 5.5 15 6.84 15 8.5C15 10.16 13.66 11.5 12 11.5C10.34 11.5 9 10.16 9 8.5C9 6.84 10.34 5.5 12 5.5ZM12 19.7C9.5 19.7 7.29 18.42 6 16.48C6.03 14.49 10 13.4 12 13.4C13.99 13.4 17.97 14.49 18 16.48C16.71 18.42 14.5 19.7 12 19.7Z"
           fill="#717171"
@@ -116,7 +116,7 @@ const Plus = ({ width, height, color }: SVGPropTypes) => {
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
       />
     </svg>
@@ -147,7 +147,7 @@ const SettingsIcon = ({ width, height, color }: SVGPropTypes) => {
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"
       />
     </svg>
@@ -164,7 +164,7 @@ const ChevronLeft = ({ width, height, color }: SVGPropTypes) => {
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
       />
     </svg>
@@ -181,7 +181,7 @@ const ChevronRight = ({ width, height, color }: SVGPropTypes) => {
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
       />
     </svg>
@@ -198,7 +198,7 @@ const ChevronDown = ({ width, height, color }: SVGPropTypes) => {
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
       />
     </svg>
@@ -290,7 +290,7 @@ const PersonCircle = ({ width, height, color }: SVGPropTypes) => (
   >
     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
     />
   </svg>

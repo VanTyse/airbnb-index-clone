@@ -103,9 +103,7 @@ export const SearchContextProvider = ({
   children: React.ReactElement;
 }) => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
+
   return (
     <SearchContext.Provider value={{ data: state, dispatch }}>
       {children}

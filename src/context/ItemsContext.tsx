@@ -46,8 +46,6 @@ const reducer = (state: ItemType[], action: ItemsAction) => {
     const fullData = action.payload.map((item) => {
       const { images } = item;
       const myImages = images.map((image) => {
-        console.log(image);
-
         return getRandomImageurl();
       });
       const shortDescription = getRandomDescription();
