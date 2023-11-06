@@ -14,9 +14,31 @@ export type region =
   | "middle-east"
   | "canada";
 
+export type month =
+  | "january"
+  | "february"
+  | "march"
+  | "april"
+  | "may"
+  | "june"
+  | "july"
+  | "august"
+  | "september"
+  | "october"
+  | "november"
+  | "december";
+
 export type SearchDetails = {
   region: region;
-  date: [Date | null, Date | null];
+  time: {
+    typeSelected: "dates" | "flexible";
+    dates: [Date | null, Date | null];
+    flexible: {
+      type: "weekend" | "week" | "month";
+      months: month[];
+    };
+  };
+
   people: {
     adults: number;
     children: number;
@@ -25,21 +47,39 @@ export type SearchDetails = {
   };
 };
 
-type SearchActionType = "update_person" | "update_date" | "update_region";
+type SearchActionType =
+  | "update_person"
+  | "update_person--clear"
+  | "update_time--timetype"
+  | "update_time--dates"
+  | "update_time--flexible"
+  | "update_region";
 
 export type SearchAction<T extends SearchActionType> = {
   type: T;
   payload?: T extends "update_person"
     ? {
-        value: string;
+        value: number;
+        person_type: keyof SearchDetails["people"];
       }
-    : T extends "update_date"
+    : T extends "update_person--clear"
+    ? null
+    : T extends "update_time--dates"
     ? {
         value: [Date | null, Date | null];
       }
+    : T extends "update_time--timetype"
+    ? {
+        value: "dates" | "flexible";
+      }
+    : T extends "update_time--flexible"
+    ? {
+        months?: month[];
+        type?: "weekend" | "week" | "month";
+      }
     : T extends "update_region"
     ? {
-        value: string;
+        value: region;
       }
     : unknown;
 };
@@ -47,8 +87,30 @@ export type SearchAction<T extends SearchActionType> = {
 export type SearchContextType = {
   data: SearchDetails;
   dispatch?: React.Dispatch<
+    | SearchAction<"update_time--timetype">
     | SearchAction<"update_person">
-    | SearchAction<"update_date">
+    | SearchAction<"update_person--clear">
+    | SearchAction<"update_time--flexible">
+    | SearchAction<"update_time--dates">
     | SearchAction<"update_region">
   >;
+};
+
+export type ItemType = {
+  images: string[];
+  shortDescription: string;
+  dates: string;
+  location: string;
+  rating: number;
+  price: number;
+};
+
+export type ItemsAction = {
+  type: string;
+  payload: ItemType[];
+};
+
+export type ItemsContextType = {
+  data: ItemType[];
+  dispatch?: React.Dispatch<ItemsAction>;
 };

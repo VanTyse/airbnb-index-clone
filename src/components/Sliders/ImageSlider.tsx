@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Icon from "../../assets/icons/Icon";
 
-export default function () {
+export default function ({ images }: { images: string[] }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [onScrollEndOffset, setOnScrollEndOffset] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -35,12 +35,35 @@ export default function () {
   }, [scrollContainerRef.current]);
 
   useEffect(() => {
+    if (!scrollContainerRef.current) return;
+
+    const scrollContainer = scrollContainerRef.current;
+    scrollContainer.addEventListener("touchend", touchendListener);
+
+    return () =>
+      scrollContainer.removeEventListener("touchend", touchendListener);
+  }, [scrollContainerRef.current]);
+
+  const touchendListener = (e: TouchEvent) => {
+    const ctarget = e.currentTarget as any;
+    const scrollOffset = ctarget?.scrollLeft;
+    setOnScrollEndOffset((x) => scrollOffset);
+  };
+
+  useEffect(() => {
     if (scrollContainerWidth === 0 || onScrollEndOffset === 0) return;
     const scrollContainer = scrollContainerRef.current;
     const scrollRatio = onScrollEndOffset / scrollContainerWidth;
     const decimal = scrollRatio - Math.floor(scrollRatio);
+    // const skipCount =
+    //   decimal > 0.5 ? Math.floor(scrollRatio) + 1 : Math.floor(scrollRatio);
+
     const skipCount =
-      decimal > 0.5 ? Math.floor(scrollRatio) + 1 : Math.floor(scrollRatio);
+      decimal > 0.6 && decimal < 0.99
+        ? Math.floor(scrollRatio)
+        : decimal > 0.1
+        ? Math.floor(scrollRatio) + 1
+        : Math.floor(scrollRatio);
 
     setCurrentImage(skipCount);
     scrollContainer?.scroll({
@@ -82,23 +105,23 @@ export default function () {
   };
 
   return (
-    <div className="relative group">
+    <div className="relative z-0 group border w-full rounded-2xl">
       <LeftButton onClick={moveRight} show={showLefttBtn} />
       <div
-        className="flex w-72 h-72 gap-0 overflow-auto scrollbar-none"
+        className="flex w-full aspect-square rounded-2xl gap-0 overflow-auto scrollbar-none"
         ref={scrollContainerRef}
       >
-        {Array(10)
-          .fill(0)
-          .map((y, index) => (
-            <div
-              className={`border bg-green-400 rounded-2xl h-72 min-w-[18rem] flex items-center justify-center`}
-            >
-              {y + index}
-            </div>
-          ))}
+        {images.map((image) => (
+          <img
+            src={image}
+            className="min-w-full aspect-square block object-cover rounded-2xl"
+          />
+        ))}
       </div>
-      <PositionIndicators currentPosition={currentImage} itemsLength={10} />
+      <PositionIndicators
+        currentPosition={currentImage}
+        itemsLength={images.length}
+      />
       <RightButton onClick={moveLeft} show={showRightBtn} />
     </div>
   );
@@ -138,7 +161,7 @@ const PositionIndicators = ({
   };
   return (
     <div
-      className="absolute z-10 bottom-5 left-1/2 -translate-x-1/2 
+      className="absolute z-0 bottom-5 left-1/2 -translate-x-1/2 shadow
         flex items-center max-w-[60px] overflow-auto scrollbar-none "
       ref={indicatorsContainerRef}
     >
@@ -183,7 +206,7 @@ const LeftButton = ({
 }) => {
   return (
     <div
-      className={`absolute z-10 left-2 top-1/2 -translate-y-1/2 group-hover:flex hidden 
+      className={`absolute z-0 left-2 top-1/2 -translate-y-1/2 group-hover:flex hidden 
       justify-center items-center ${!show && "!hidden"}`}
     >
       <div
@@ -206,7 +229,7 @@ const RightButton = ({
 }) => {
   return (
     <div
-      className={`absolute z-10 right-2 top-1/2 -translate-y-1/2  group-hover:flex hidden
+      className={`absolute z-0 right-2 top-1/2 -translate-y-1/2  group-hover:flex hidden
       p-2 justify-center items-center ${!show && "!hidden"}`}
     >
       <div

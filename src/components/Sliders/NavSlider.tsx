@@ -1,7 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Icon from "../../assets/icons/Icon";
 
-export default function () {
+export default function ({
+  hideButtons = false,
+  showSliderButtonsBg = true,
+  children,
+}: {
+  hideButtons?: boolean;
+  showSliderButtonsBg?: boolean;
+  children?: React.ReactNode;
+}) {
   const itemsRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -46,7 +54,7 @@ export default function () {
     return () => scrollContainer.removeEventListener("scroll", scrollListener);
   }, [scrollContainerRef.current]);
 
-  const offsetWidth = (itemsScrollWidth - itemsContainerWidth) / 7;
+  const offsetWidth = itemsContainerWidth / 2;
 
   const showRightBtn = useMemo(() => {
     if (!scrollOffset) return true;
@@ -75,45 +83,59 @@ export default function () {
   };
 
   return (
-    <div className="basis-3/4 max-w-[70%] relative">
-      <LeftButton onClick={moveRight} show={showLeftBtn} />
-      <div
-        className="py-7 overflow-auto scrollbar-none"
-        ref={scrollContainerRef}
-      >
+    <div className="relative">
+      {!hideButtons && (
+        <LeftButton
+          showBg={showSliderButtonsBg}
+          onClick={moveRight}
+          show={showLeftBtn}
+        />
+      )}
+      <div className="overflow-auto scrollbar-none" ref={scrollContainerRef}>
         <div
           className={`flex gap-6 items-center transition-all duration-700`}
           ref={itemsRef}
         >
-          {[100].map((x) => {
-            const s = [];
-            for (let i = 0; i < 100; i++) {
-              s.push(i);
-            }
+          {children ||
+            [100].map((x) => {
+              const s = [];
+              for (let i = 0; i < 100; i++) {
+                s.push(i);
+              }
 
-            return s.map((y) => <div className="border">{y}</div>);
-          })}
+              return s.map((y) => <div className="border">{y}</div>);
+            })}
         </div>
       </div>
-      <RightButton show={showRightBtn} onClick={moveLeft} />
+      {!hideButtons && (
+        <RightButton
+          showBg={showSliderButtonsBg}
+          show={showRightBtn}
+          onClick={moveLeft}
+        />
+      )}
     </div>
   );
 }
 
 const LeftButton = ({
   show,
+  showBg,
   onClick,
 }: {
   show: boolean;
+  showBg: boolean;
   onClick: () => void;
 }) => {
   return (
     <div
-      className={`absolute z-10 left-0 top-1/2 -translate-y-1/2  bg-white 
+      className={`absolute z-10 left-0 top-1/2 -translate-y-1/2 ${
+        showBg && "bg-white p-2 "
+      } 
       p-2 flex justify-center items-center ${show ? "flex" : "hidden"}`}
     >
       <div
-        className={`w-8 h-8  bg-white cursor-pointer flex items-center justify-center border
+        className={`w-8 h-8 bg-white cursor-pointer flex items-center justify-center border
         border-vantyse-grey-2 rounded-full hover:shadow-md `}
         onClick={onClick}
       >
@@ -125,18 +147,22 @@ const LeftButton = ({
 
 const RightButton = ({
   show,
+  showBg,
   onClick,
 }: {
   show: boolean;
+  showBg: boolean;
   onClick: () => void;
 }) => {
   return (
     <div
-      className={`absolute z-10 right-0 top-1/2 -translate-y-1/2  bg-white 
-      p-2 flex justify-center items-center ${show ? "flex" : "hidden"}`}
+      className={`absolute z-10 right-0 top-1/2 -translate-y-1/2  ${
+        showBg && "bg-white p-2"
+      } 
+      flex justify-center items-center ${show ? "flex" : "hidden"}`}
     >
       <div
-        className={`w-8 h-8  bg-white cursor-pointer flex items-center justify-center border
+        className={`w-8 h-8 bg-white cursor-pointer flex items-center justify-center border
         border-vantyse-grey-2 rounded-full hover:shadow-md `}
         onClick={onClick}
       >

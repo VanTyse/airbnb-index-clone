@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Icon from "../../assets/icons/Icon";
 
 export default function NumberSelctor({
   value,
+  onChange,
 }: {
   value: number;
   onChange: (value: number) => void;
 }) {
   const [_value, setValue] = useState(value);
+
+  useEffect(() => {
+    onChange(_value);
+  }, [_value]);
+
+  useEffect(() => {
+    setValue(value);
+  }, [value]);
 
   const increaseValue = () => {
     setValue((value) => value + 1);

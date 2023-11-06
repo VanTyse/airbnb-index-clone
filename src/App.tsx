@@ -1,27 +1,41 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
-import ImageSlider from "./components/Sliders/ImageSlider";
-import Calendar from "./components/Calendar/Calendar";
+import AmazingSpaces from "./components/Items/AmazingSpaces";
+import { ItemsContext } from "./context/ItemsContext";
+import { ItemType } from "./lib/types";
+import fetchJSON from "./lib/utils/fetchJSON";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [currentHeaderHeight, setCurrentHeaderHeight] = useState(44);
-  // This value is not the height in pixels. Rather it is the tailwinds height assuming you use h-44;
+  const { dispatch: itemsDispatch } = useContext(ItemsContext);
+
+  const fetchItems = async () => {
+    const items = (await fetchJSON("/MOCK_DATA.json")) as ItemType[];
+
+    if (items)
+      itemsDispatch && itemsDispatch({ type: "update", payload: items });
+  };
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   return (
     <div className="text-vantyse-grey-text">
       <Header onHeightChange={(height) => setCurrentHeaderHeight(height)} />
       <div
-        className={`${currentHeaderHeight === 24 ? "pt-24" : "pt-44"}`}
+        className={`${
+          currentHeaderHeight === 24 ? "md:pt-24" : "md:pt-44"
+        } pt-0`}
       ></div>
 
-      <div className={`max-w-[1375px] w-[95%] mx-auto h-[100dvh] pt-28`}>
-        <div className="mt-10 mx-auto w-fit">{/* <ImageSlider /> */}</div>
-        <div className="mt-10 mx-auto w-fit">
-          <Calendar />
-        </div>
+      <div className={`max-w-[1375px] w-[90%] z-0 mx-auto md:pt-28 pt-10`}>
+        <AmazingSpaces />
+        <div className="mt-10 mx-auto w-fit"></div>
       </div>
+      <Footer />
     </div>
   );
 }
