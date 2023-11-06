@@ -235,8 +235,8 @@ const Time = ({ expand, open }: { expand: boolean; open: () => void }) => {
     return new Date(N);
   }, [showMoreMonthsCount, startDate]);
 
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [currentMonth] = useState(new Date().getMonth());
+  const [currentYear] = useState(new Date().getFullYear());
   const [period, setPeriod] = useState<{
     start: Date | null;
     end: Date | null;

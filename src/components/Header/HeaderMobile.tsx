@@ -2,7 +2,6 @@ import { useState } from "react";
 import Icon from "../../assets/icons/Icon";
 import NavbarMobile from "../Navbar/NavbarMobile";
 import SearchBarMobile from "../Searchbar/SearchBarMobile";
-import { VisitType } from "../../lib/types";
 
 export default function HeaderMobile() {
   const [showSearchDetails, setShowSearchDetailsScreen] = useState(false);

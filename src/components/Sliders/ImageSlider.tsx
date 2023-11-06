@@ -47,7 +47,7 @@ export default function ({ images }: { images: string[] }) {
   const touchendListener = (e: TouchEvent) => {
     const ctarget = e.currentTarget as any;
     const scrollOffset = ctarget?.scrollLeft;
-    setOnScrollEndOffset((x) => scrollOffset);
+    setOnScrollEndOffset(scrollOffset);
   };
 
   useEffect(() => {
@@ -135,12 +135,6 @@ const PositionIndicators = ({
   itemsLength: number;
 }) => {
   const indicatorsContainerRef = useRef<HTMLDivElement>(null);
-
-  const indicatorsContainerWidth = useMemo(() => {
-    if (!indicatorsContainerRef.current) return 0;
-    const indicatorsContainer = indicatorsContainerRef.current;
-    return indicatorsContainer.scrollWidth;
-  }, [indicatorsContainerRef.current]);
 
   useEffect(() => {
     if (!indicatorsContainerRef.current) return;

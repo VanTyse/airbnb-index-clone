@@ -45,7 +45,11 @@ const reducer = (state: ItemType[], action: ItemsAction) => {
   if (action.type === "update" && action.payload) {
     const fullData = action.payload.map((item) => {
       const { images } = item;
-      const myImages = images.map((image) => getRandomImageurl());
+      const myImages = images.map((image) => {
+        console.log(image);
+
+        return getRandomImageurl();
+      });
       const shortDescription = getRandomDescription();
       const date = getRandomDates();
 

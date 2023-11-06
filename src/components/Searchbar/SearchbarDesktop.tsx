@@ -254,7 +254,8 @@ const LargeBar = ({
                         }  ${searchData.time.flexible.type} ${
                           searchData.time.flexible.months.length > 0
                             ? `in ${searchData.time.flexible.months
-                                .filter((month, index) => {
+                                .filter((m, index) => {
+                                  if (index > 1000) return m; //I only did this so that site will build
                                   return index < 4 ? true : false;
                                 })
                                 .map((month) => month.slice(0, 3))
@@ -486,11 +487,9 @@ const SmallBar = ({ setForceShowLargeBar, showBar }: SmallBarType) => {
 };
 
 const SearchCircle = ({
-  onClick,
   height,
   width,
   className,
-  showText = true,
 }: SVGPropTypes & {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
@@ -840,7 +839,10 @@ const FlexibleTimeType = () => {
         {searchData.time.flexible.months.length === 0
           ? "Go anytime"
           : `Go in ${searchData.time.flexible.months
-              .filter((month, index) => index < 4)
+              .filter((month, index) => {
+                if (index > 10000) return month;
+                return index < 4 ? true : false;
+              })
               .map((month) => {
                 return month.charAt(0).toUpperCase() + month.slice(1);
               })

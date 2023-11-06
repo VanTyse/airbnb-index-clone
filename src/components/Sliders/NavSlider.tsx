@@ -13,12 +13,6 @@ export default function ({
   const itemsRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const itemsScrollWidth = useMemo(() => {
-    if (!itemsRef.current) return 0;
-    const item = itemsRef.current;
-    return item.scrollWidth;
-  }, [itemsRef.current]);
-
   const itemsContainerWidth = useMemo(() => {
     if (!itemsRef.current) return 0;
     const item = itemsRef.current;
@@ -39,6 +33,7 @@ export default function ({
 
   const scrollListener = () => {
     setScrollOffset((x) => {
+      console.log(x);
       const offset = getScrollOffset();
       if (offset) return offset;
       else return 0;
@@ -99,7 +94,7 @@ export default function ({
           {children ||
             [100].map((x) => {
               const s = [];
-              for (let i = 0; i < 100; i++) {
+              for (let i = 0; i < x; i++) {
                 s.push(i);
               }
 

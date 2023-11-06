@@ -1,6 +1,5 @@
 import { SVGPropTypes } from "../../lib/types";
 import Icons from "./Icons";
-import { cloneElement } from "react";
 
 export default function ({
   name,
