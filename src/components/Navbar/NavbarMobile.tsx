@@ -19,9 +19,14 @@ export default function ({
 }) {
   const [selectedVisitOption, setSelectedVisitOption] =
     useState<VisitType>("stays");
+  const { dispatch: searchDispatch } = useContext(SearchContext);
   const [navSelected, setNavSelected] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState("region");
+
+  const clearAll = () => {
+    searchDispatch && searchDispatch({ type: "clear_all" });
+  };
 
   return (
     <div className="block md:hidden gap-8 items-center pt-7">
@@ -109,7 +114,10 @@ export default function ({
             </div>
           ) : (
             <div className="absolute animate-enter-up z-10 bottom-0 left-0 bg-white w-full h-20 p-6 flex justify-between items-center">
-              <div className="text-black font-semibold text-lg underline">
+              <div
+                className="text-black font-semibold text-lg underline"
+                onClick={clearAll}
+              >
                 Clear all
               </div>
               <button
@@ -151,6 +159,7 @@ const Region = ({
             >
               <Icon name="Lens" />
               <input
+                id="region-input"
                 type="text"
                 defaultValue={
                   regions.find((r) => r.region === searchData.region)?.label
@@ -227,7 +236,6 @@ const Time = ({ expand, open }: { expand: boolean; open: () => void }) => {
       Math.floor((showMoreMonthsCount * 4 + todaysMonth) / 12) + todaysYear;
 
     const eMonth = (showMoreMonthsCount * 4 + todaysMonth) % 12;
-    console.log(eYear, eMonth);
 
     const N =
       Date.parse(new Date(`${eYear}-${eMonth + 1}-01`).toString()) - 86400000;

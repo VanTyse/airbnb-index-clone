@@ -29,6 +29,7 @@ const reducer = (
     | SearchAction<"update_time--flexible">
     | SearchAction<"update_time--dates">
     | SearchAction<"update_region">
+    | SearchAction<"clear_all">
 ) => {
   if (action.type === "update_region" && action.payload) {
     return {
@@ -89,6 +90,10 @@ const reducer = (
         },
       },
     };
+  }
+
+  if (action.type === "clear_all") {
+    return INITIAL_STATE;
   }
   return state;
 };

@@ -49,6 +49,7 @@ export type SearchDetails = {
 
 type SearchActionType =
   | "update_person"
+  | "clear_all"
   | "update_person--clear"
   | "update_time--timetype"
   | "update_time--dates"
@@ -81,6 +82,8 @@ export type SearchAction<T extends SearchActionType> = {
     ? {
         value: region;
       }
+    : T extends "clear_all"
+    ? null
     : unknown;
 };
 
@@ -93,6 +96,7 @@ export type SearchContextType = {
     | SearchAction<"update_time--flexible">
     | SearchAction<"update_time--dates">
     | SearchAction<"update_region">
+    | SearchAction<"clear_all">
   >;
 };
 

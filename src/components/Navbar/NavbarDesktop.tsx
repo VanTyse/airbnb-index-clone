@@ -33,10 +33,7 @@ export default function NavbarDesktop() {
           <span className="font-semibold whitespace-nowrap">
             Display total before taxes
           </span>
-          <Switch
-            className="bg-vantyse-grey-2"
-            // style={}
-          />
+          <Switch className="bg-vantyse-grey-2" />
         </div>
       </div>
     </div>
