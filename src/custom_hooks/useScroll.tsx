@@ -37,7 +37,5 @@ export default function useScroll() {
 }
 
 const getScrollOffset = () => {
-  return (
-    window.pageYOffset || document.documentElement.scrollTop || window.scrollY
-  );
+  return document.documentElement.scrollTop || window.scrollY;
 };
