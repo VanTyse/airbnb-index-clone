@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 import { SearchContextProvider } from "./context/SearchContext.tsx";
 import { ItemsContextProvider } from "./context/ItemsContext.tsx";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 // import { ConfigProvider } from "antd";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -19,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }}
         > */}
         <Router>
-          <App />
+          <Routes>
+            <Route path="*" element={<App />} />
+          </Routes>
         </Router>
         {/* </ConfigProvider> */}
       </SearchContextProvider>
