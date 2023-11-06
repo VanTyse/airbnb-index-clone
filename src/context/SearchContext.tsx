@@ -1,4 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { SearchAction, SearchContextType, SearchDetails } from "../lib/types";
 
 const INITIAL_STATE: SearchDetails = {
