@@ -1,11 +1,9 @@
 # Airbnb Clone
 
-I worked on this as a practical test for a dope Lagos company. And even if I don't land the role, I am really glad that I worked on it. 
+I worked on this as a practical test for a dope Lagos company. And even if I don't land the role, I am really glad that I worked on it.
 First of all, you may want to open this app on a windows. There is a problem that still needs to be solved as the application doesnt load on safari and other webkit browsers.
 
-- [Check it out here!!!](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) 
-
-
+- [Check it out here!!!](https://vantyse-airbnb-clone.netlify.app/)
 
 ## Components
 
