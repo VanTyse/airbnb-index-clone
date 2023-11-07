@@ -1,27 +1,14 @@
-# React + TypeScript + Vite
+# Airbnb Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I worked on this as a practical test for a dope Lagos company. And even if I don't land the role, I am really glad that I worked on it. 
+First of all, you may want to open this app on a windows. There is a problem that still needs to be solved as the application doesnt load on safari and other webkit browsers.
 
-Currently, two official plugins are available:
+- [Check it out here!!!](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Components
 
-- Configure the top-level `parserOptions` property like this:
+So all the components you can find in the application were custom. There was a time limit so they are not as abstracted as I would like but if you want to create a slider or a calendar, you should definitely check the code out under the components folder.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Please drop a star if you like.
